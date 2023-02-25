@@ -45,17 +45,18 @@ object DependencyVersion {
     const val KOTLIN_LOGGING_VERSION = "3.0.0"
     const val SWAGGER_VERSION = "2.10.5"
     const val LOGBACK_ENCODER = "7.2"
+    const val MYSQL_R2DBC_SUPPORT = "2.0.8"
 }
 
 dependencies {
     /** spring starter */
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    // implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     /** mysql with r2dbc support */
-    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:2.0.8")
+    implementation("com.github.jasync-sql:jasync-r2dbc-mysql:${DependencyVersion.MYSQL_R2DBC_SUPPORT}")
 
     /** kotlin */
     implementation("org.jetbrains.kotlin:kotlin-reflect")

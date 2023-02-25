@@ -1,4 +1,4 @@
 package com.goofy.visitors.presentation
 
-class VisitorsRestController {
+class VisitorsResource {
 }

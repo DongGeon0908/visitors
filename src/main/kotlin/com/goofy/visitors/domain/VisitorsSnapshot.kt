@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
-import java.time.ZonedDateTime
+import java.time.LocalDateTime
 
 @Table("visitors_snapshot")
 class VisitorsSnapshot(
@@ -18,9 +18,9 @@ class VisitorsSnapshot(
 
     @CreatedDate
     @Column("created_at")
-    val createdAt: ZonedDateTime,
+    val createdAt: LocalDateTime,
 
     @LastModifiedDate
     @Column("modified_at")
-    val modifiedAt: ZonedDateTime
+    val modifiedAt: LocalDateTime
 )
