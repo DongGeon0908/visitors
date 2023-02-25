@@ -7,21 +7,16 @@ import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("visitors_snapshot")
-class VisitorsSnapshot(
+@Table("visitors")
+class Visitors(
     @Id
-    val id: Long = -1,
-
-    @Column("visitors_id")
-    val visitorsId: Long,
-
-    val count: Long,
+    val target: String,
 
     @CreatedDate
     @Column("created_at")
-    val createdAt: LocalDateTime,
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @LastModifiedDate
     @Column("modified_at")
-    val modifiedAt: LocalDateTime
+    var modifiedAt: LocalDateTime = LocalDateTime.now()
 )
