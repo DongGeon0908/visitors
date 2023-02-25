@@ -15,9 +15,6 @@ import org.springframework.web.reactive.config.CorsRegistry
 import org.springframework.web.reactive.config.WebFluxConfigurer
 import java.nio.charset.StandardCharsets
 
-/** produces default type */
-const val MEDIA_TYPE_APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8"
-
 @Configuration
 class WebFluxConfig : WebFluxConfigurer {
     /** cors mapping */
