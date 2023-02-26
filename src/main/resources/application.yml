@@ -6,3 +6,9 @@ spring:
     redis:
       repositories:
         enabled: false
+    mongodb:
+      database: visitors
+      uri: mongodb://root:root1234@localhost:27017
+      username: root
+      password: root1234
+      authentication-database: admin

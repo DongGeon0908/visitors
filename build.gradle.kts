@@ -8,7 +8,15 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("kapt") version kotlinVersion
+    kotlin("plugin.allopen") version kotlinVersion
     idea
+}
+
+allOpen {
+    annotation("org.springframework.data.mongodb.core.mapping.Document")
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.MappedSuperclass")
+    annotation("javax.persistence.Embeddable")
 }
 
 group = "com.goofy"
@@ -45,6 +53,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
+
+    /** database */
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
 
     /** kotlin */
     implementation("org.jetbrains.kotlin:kotlin-reflect")
