@@ -14,4 +14,13 @@ class VisitorsSnapshot(
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS", timezone = "Asia/Seoul")
     var createdAt: ZonedDateTime = ZonedDateTime.now()
-)
+) {
+    companion object {
+        fun of(target: String, count: String): VisitorsSnapshot {
+            return VisitorsSnapshot(
+                target = target,
+                count = count.toLong()
+            )
+        }
+    }
+}
