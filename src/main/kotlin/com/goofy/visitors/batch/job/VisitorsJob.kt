@@ -10,10 +10,10 @@ class VisitorsJob(
     private val visitorsSnapshotRepository: VisitorsSnapshotRepository,
     private val redisCacheService: RedisCacheService
 ) {
-    fun runDaily() {
+    fun runDaily() = visitorsSnapshotRepository.saveAll(
         redisCacheService.getDailyVisitors()
-            .map { VisitorsSnapshot.of(it.target, it.count) }
-            .flatMap { visitorsSnapshotRepository.save(it) }
-            .subscribe()
-    }
+            .map { visitor ->
+                VisitorsSnapshot.of(visitor.target, visitor.count)
+            }
+    )
 }
